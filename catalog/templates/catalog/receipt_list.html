@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Receipt List</h1>
+
+    {% if receipt_list %}
+    <ul>
+
+      {% for receipt in receipt_list %}
+      <li>
+        <a href="{{ receipt.get_absolute_url }}">{{ receipt.name }}</a> ({{receipt.owner}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no receipts in the portal.</p>
+    {% endif %}       
+{% endblock %}

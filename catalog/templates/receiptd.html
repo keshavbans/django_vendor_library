@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    {% if user == request.user %}
+        <h1>Title: {{ name }}</h1>
+        <p><strong>Vendor:</strong> {{ user }}</p>
+        <p><strong>Billed at:</strong> {{ updated }}</p>
+        {% load staticfiles %}
+        <p><strong>Receipt:</strong>  <img src ="{{  image.url }}" height="500", width="500"/></p>
+    {% else %}
+        <h3> You don't have access to the path </h3>
+    {% endif %}
+
+{% endblock %}

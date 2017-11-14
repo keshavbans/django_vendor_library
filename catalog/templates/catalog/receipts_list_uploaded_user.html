@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Uploaded Receipts</h1>
+
+    {% if receipt_list %}
+    <ul>
+
+      {% for rec in receipt_list %}
+      <li>
+        <a href="{% url 'receipt-detail' rec.pk %}">{{rec.updated_at}}</a> {{rec.name}}
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no receipts.</p>
+    {% endif %}       
+{% endblock %}

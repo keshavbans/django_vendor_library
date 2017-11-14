@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Cancel Subscription</h1>
+    <p>Please raise a request to cancel your subscription. Are you sure you want to continue?</p>
+    <form method="post" action="{% url "cancel_subscription" %}">
+        {% csrf_token %}
+        <label for="current-password">Insert your current password:</label>
+        <input id="current-password" type="password" name="current_password" placeholder="Current password" autocomplete="off"></input>
+        <br>
+        <div>
+            <input type="submit" class="btn-danger" value="Yes, I want to cancel subscription"></input>
+        </div>
+
+    </form>
+{% endblock %}

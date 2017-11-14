@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+  <h1>Title: {{ receipt.name }}</h1>
+
+  <p><strong>Vendor:</strong> {{ receipt.owner }}</p>
+    {% if receipt.receipt_image %}
+        {% load staticfiles %}
+        <p><strong>Receipt:</strong>  <img src ="{{  receipt.receipt_image.url }}" height="500", width="500"/></p>
+    {% endif %}
+    <p><strong>Billed at:</strong> {{ receipt.updated_at }}</p>
+  </div>
+{% endblock %}
